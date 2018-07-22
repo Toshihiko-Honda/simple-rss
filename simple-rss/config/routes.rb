@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+	resources :articles, only: [:index, :show] do
+		collection do
+			post 'renew'
+		end
+	end
+
+	resources :news_sites, except: [:show, :edit]
+
+	root 'articles#index'
+
 end
