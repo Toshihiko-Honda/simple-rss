@@ -1,0 +1,22 @@
+<h1>Simple RSS</h1>
+
+<h2>News Site List</h2>
+
+<table>
+  <tr>
+    <th>TITLE</th>
+    <th>URL</th>
+  </tr>
+ 
+  <% @news_sites.each do |site| %>
+    <tr>
+    	<td><%= site.title %></td>
+      <td><%= site.url %></td>
+      <td><%= link_to 'Delete', news_site_path(site),
+                    method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'Add News Site', new_news_site_path %></p>
+<p><%= link_to 'Back to Article List', articles_path %></p>

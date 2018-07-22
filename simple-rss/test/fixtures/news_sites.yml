@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  text,: MyString
+  gathered_at: MyString
+  datetime: MyString
+
+two:
+  url: MyString
+  text,: MyString
+  gathered_at: MyString
+  datetime: MyString

@@ -1,0 +1,27 @@
+<h1>Simple RSS</h1>
+
+<p><%= link_to 'News Site List', news_sites_path %></p>
+
+<p><%= link_to 'Renew Articles', renew_articles_path, method: :post %></p>
+
+<h2>Article List</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Content URL</th>
+    <th>Published</th>
+    <th>Resource</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title.slice(0, 20) %><%= '...' if article.title.length > 20 %></td>
+      <td><%= article.description.slice(0, 140) %><%= '...' if article.description.length > 140 %></td>
+      <td><%= link_to article.content_url, article.content_url %></td>
+      <td><%= article.published_at %></td>
+      <td><%= article.news_site.title %></td>
+    </tr>
+  <% end %>
+</table>
