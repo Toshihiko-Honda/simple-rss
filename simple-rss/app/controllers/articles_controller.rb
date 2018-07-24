@@ -1,7 +1,4 @@
 class ArticlesController < ApplicationController
-  # Rails.logger.debug('#######################################')
-  # Rails.logger.debug(article.inspect)
-  # Rails.logger.debug('#######################################')
 	def index
 		@articles = Article.all.order('published_at DESC')
 	end
@@ -10,8 +7,10 @@ class ArticlesController < ApplicationController
 	  @article = Article.find(params[:id])
 	end
 
-	def renew
+	def create
 		@news_sites = NewsSite.all
 		Articles::RenewArticles.call(@news_sites)
+		flash[:is_renewed] = true
+		redirect_to action: 'index'
 	end
 end

@@ -2,7 +2,12 @@
 
 <p><%= link_to 'News Site List', news_sites_path %></p>
 
-<p><%= link_to 'Renew Articles', renew_articles_path, method: :post %></p>
+<div>
+<p><%= link_to 'Renew Articles', articles_path, method: :post %></p>
+<% if flash[:is_renewed] %>
+  <p>Successfully Renewed Articles<p>
+<% end %>
+</div>
 
 <h2>Article List</h2>
 
